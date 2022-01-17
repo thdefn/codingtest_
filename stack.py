@@ -1,49 +1,42 @@
-import sys
+# stack 만들기
+# size(), isEmpty(), push(), pop(), top()
+
+
+from collections import deque
+
+def size():
+    print(len(stack))
+
+
+def isEmpty():
+    if len(stack) == 0:
+        return True
+    else:
+        return False
 
 
 def push(n):
     stack.append(n)
 
 
+# 원래의 코드는 스택이 비어있는 경우 에러가 나요 -> 덱을 사용해봐요
 def pop():
-    if len(stack) == 0:
-        print("-1")
-    else:
-        print(stack[-1])
-        stack.pop()
-
-
-def size():
-    print(len(stack))
-
-
-def empty():
-    if len(stack) == 0:
-        print("1")
-    else:
-        print("0")
+    if isEmpty():
+        return
+    n = stack[len(stack) - 1]
+    stack.pop()
+    return n
 
 
 def top():
-    if len(stack) == 0:
-        print("-1")
-    else:
-        print(stack[-1])
+    if isEmpty():
+        return
+    return stack[len(stack) - 1]
 
 
-stack = []
+#stack = []
 
-n = int(sys.stdin.readline())
-data = [sys.stdin.readline().strip() for i in range(n)]
-
-for i in range(n):
-    if data[i].split()[0] == "push":
-        push(int(data[i].split()[1]))
-    elif data[i].split()[0] == "pop":
-        pop()
-    elif data[i].split()[0] == "empty":
-        empty()
-    elif data[i].split()[0] == "top":
-        top()
-    elif data[i].split()[0] == "size":
-        size()
+stack = deque()
+print(stack)
+pop()
+top()

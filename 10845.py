@@ -6,7 +6,6 @@ num = int(sys.stdin.readline())
 
 for i in range(num):
     text = sys.stdin.readline().strip()
-
     if text.split()[0] == "push":
         que.append(text.split()[1])
     elif text == "front":
