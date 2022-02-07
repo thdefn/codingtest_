@@ -54,3 +54,46 @@ def buubleSort(array):
     return array
 
 print(buubleSort(li))
+
+
+#삽입정렬
+#특정한 값을 찾아 적절한 위치에 삽입하는 정렬
+#배열의 크기가 클수록 속도가 느려짐
+
+
+def insertionSort(array):
+    for i in range(1, len(array)):
+        for j in range(i, 0, -1):
+            if array[j-1] > array[j]:
+                array[j-1], array[j] = array[j], array[j-1]
+            else:
+                break
+        print(array)
+    return array
+
+li = [3,1,5,9,8,6,7,4,10,2]
+print(insertionSort(li))
+
+
+#계수정렬
+#숫자의 개수를 카운팅하는 정렬 (카운팅 정렬)
+#데이터의 범위가 모두 포함되는 새로운 리스트를 만들고 모든 값을 0으로 채운 뒤 데이터값을 인덱스로 변환하여 1씩 증가시킨다.
+#데이터의 범위가 제한되어있을때에 한해서 가장 빠른 속도로 정렬이 가능함
+
+def countingSort(array):
+    count_array = [0]*(max(array)+1) #+1인이유는 0번째 인덱스는 사용하지 않음
+
+    for i in range(len(array)):
+        count_array[array[i]] += 1
+        print(count_array)
+    array.clear()
+
+    for i in range(len(count_array)):
+        for j in range(count_array[i]):
+            array.append(i)
+        print(array)
+
+    return array
+
+li=[3,1,3,9,8,3,7,4,10,2]
+print(countingSort(li))

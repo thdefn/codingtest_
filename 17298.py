@@ -1,8 +1,8 @@
 import sys
-'''
+
 res = []
 num = int(sys.stdin.readline())
-data = sys.stdin.readline().strip().split()
+data = list(map(int, sys.stdin.readline().split()))
 res = [-1]*num
 
 for i in range(num):
@@ -50,3 +50,5 @@ for i in range(number):
 
 
 print(*nge)
+
+'''
