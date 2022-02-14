@@ -7,15 +7,15 @@
 li1=[3,1,4,9,8,6,7,4,10,2]
 li2=sorted(li1)
 li3=sorted(li1,reverse=True)
-print(li1)
-print(li2)
-print(li3)
+#print(li1)
+#print(li2)
+#print(li3)
 
 li1.sort()
-print(li1)
+#print(li1)
 
 li1.sort(reverse=True)
-print(li1)
+#print(li1)
 
 
 # 선택정렬 : 매번 가장 작은값을 선택하고 그 값을 맨 첫번째 위치한 값과 위치 교환하는 정렬
@@ -34,7 +34,7 @@ def selectionSort(array):
     return array
 
 li=[3,1,4,9,8,6,7,4,10,2]
-print(selectionSort(li))
+#print(selectionSort(li))
 
 
 # 버블 정렬
@@ -53,7 +53,7 @@ def buubleSort(array):
             print(array)
     return array
 
-print(buubleSort(li))
+#print(buubleSort(li))
 
 
 #삽입정렬
@@ -72,7 +72,7 @@ def insertionSort(array):
     return array
 
 li = [3,1,5,9,8,6,7,4,10,2]
-print(insertionSort(li))
+#print(insertionSort(li))
 
 
 #계수정렬
@@ -95,5 +95,35 @@ def countingSort(array):
 
     return array
 
-li=[3,1,3,9,8,3,7,4,10,2]
-print(countingSort(li))
+li=[3,1,5,9,8,6,7,4,10,2]
+#print(countingSort(li))
+
+
+#퀵정렬
+#기준값을 두고 기준보다 작은 값은 앞으로, 큰 값은 뒤로 데이터를 분리함
+# 데이터를 분류후 둘로나뉜 부분 리스트에 대해 같은 방법으로 정렬을 반복함
+# 부분 리스트가 더 이상 분할이 불가능할때까지 나누다가 각 부분 리스트의 정렬이 완료되면 다시 합치는 방식
+# 굉장히 속도가 빠르다
+
+
+def quickSort(array):
+    print(array)
+    # 더 이상 쪼갤 수 없는 숫자가 되어 있을때는 리턴 !
+    if len(array) <= 1:
+        return array
+
+    pivot = array[0]
+    left, right = [], []
+
+    for i in range(1, len(array)):
+        if array[i] <= pivot:
+            left.append(array[i])
+        elif array[i] > pivot:
+            right.append(array[i])
+
+    # 배열을 쪼개고 쪼개고 쪼개는 것을 반복해요 쪼갠 리스트를 다시 퀵정렬!
+    return quickSort(left) + [pivot] + quickSort(right)
+
+print(quickSort(li))
+
+
